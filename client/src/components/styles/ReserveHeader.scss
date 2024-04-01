@@ -1,0 +1,76 @@
+header.nofixed {
+  position: relative;
+  z-index: -1;
+  background-color: rgba(39, 39, 39, 54%);
+  nav {
+    padding-bottom: 3rem;
+  }
+}
+
+header.reserve-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  width: 100%;
+  box-shadow: 0 4px 2px -2px rgb(225, 218, 218);
+
+  nav.container {
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #4b5563;
+
+    i#bars {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header.reserve-header {
+    nav.container {
+      ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+        background: #fff;
+        padding: 1rem;
+        flex-direction: column;
+        clip-path: polygon(
+          0 0,
+          100% 0,
+          100% 0,
+          0 0
+        ); /* 用來創建一個只有元素的一部分可見的剪切區域 */
+        transition: all 0.2s linear;
+
+        a {
+          margin: 0.5rem 0;
+          width: 80%;
+          background: #eeeeee;
+        }
+
+        &.active {
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        }
+      }
+
+      i#bars {
+        padding-right: 1.5rem;
+        font-size: 1.5rem;
+        display: inline-block;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

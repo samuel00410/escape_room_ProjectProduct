@@ -1,0 +1,67 @@
+@charset "UTF-8";
+section.wrapper {
+  overflow-x: auto;
+  background-color: #000;
+  margin: 0;
+}
+section.wrapper section.escape-game {
+  width: 1920px; /* 固定寬度為 1920px */
+  height: 1080px; /* 固定高度為 1080px */
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-image: url("../../../images/escape_room.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+section.wrapper section.escape-game div.blue-shot {
+  cursor: pointer;
+  position: absolute;
+}
+section.wrapper section.escape-game div.blue-shot img {
+  width: 70%;
+}
+section.wrapper section.escape-game #document {
+  bottom: 23%;
+  right: 20%;
+}
+section.wrapper section.escape-game #table {
+  bottom: 25%;
+  right: 33%;
+}
+section.wrapper section.escape-game #door {
+  top: 28%;
+  left: 15%;
+}
+section.wrapper section.escape-game #drawer {
+  top: 90%;
+  right: 14%;
+}
+section.wrapper section.escape-game #handle {
+  top: 57%;
+  left: 40%;
+}
+section.wrapper section.escape-game #chair {
+  bottom: 1%;
+  right: 34%;
+}
+
+@keyframes expandLine {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 10rem;
+  }
+}
+@keyframes expandBox {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.css.map */

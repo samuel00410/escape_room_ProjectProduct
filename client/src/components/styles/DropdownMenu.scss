@@ -1,0 +1,49 @@
+div.dropdown {
+  display: inline-block;
+  position: relative;
+
+  a.dropbtn {
+    i {
+      padding: 0.5rem;
+    }
+
+    i.caret-btn {
+      transition: all 0.25s linear;
+      &:hover {
+        transform: rotate(360deg);
+      }
+    }
+  }
+
+  div.dropdown-content {
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    border: 0.1rem solid black;
+    border-top: none;
+    background: rgba(104, 94, 86, 0.5);
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease-in-out;
+
+    a.content {
+      width: 100%;
+      text-align: center;
+      padding: 0.5rem 2rem;
+      border-bottom: 0.1rem solid black;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.5);
+        color: black;
+      }
+    }
+  }
+
+  div.drop-active {
+    max-height: 10rem; /* 设置足够高的值来容纳所有子项 */
+    opacity: 1;
+    visibility: visible; /* 使内容可见和可交互 */
+  }
+}

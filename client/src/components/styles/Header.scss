@@ -1,0 +1,127 @@
+header.front_page {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.25rem;
+  background: linear-gradient(
+    180deg,
+    #000 0%,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.93) 0%,
+    rgba(0, 0, 0, 0.55) 25.52%,
+    rgba(0, 0, 0, 0) 100%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+
+  div.logo {
+    display: flex;
+    align-items: center;
+  }
+
+  nav.nav-links {
+    ul {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      li {
+        margin: 0.5rem 2rem;
+        a {
+          color: rgba(255, 255, 255, 0.57);
+          text-decoration: none;
+          font-size: 1.25rem;
+          transition: all 1s;
+          &:hover {
+            text-decoration: underline;
+            color: rgba(255, 255, 255, 0.9);
+          }
+        }
+
+        a.active {
+          text-decoration: underline;
+          color: rgba(255, 255, 255, 0.9);
+        }
+      }
+    }
+  }
+
+  // div.login {
+  //   a {
+  //     color: rgba(255, 255, 255, 0.57);
+  //     text-decoration: none;
+  //     font-size: 1.25rem;
+  //     transition: all 1s;
+  //     &:hover {
+  //       text-decoration: underline;
+  //       color: rgba(255, 255, 255, 0.9);
+  //     }
+  //   }
+
+  //   a.active {
+  //     text-decoration: underline;
+  //     color: rgba(255, 255, 255, 0.9);
+  //   }
+  // }
+
+  #mobile-nav {
+    display: none;
+    i {
+      color: #fff;
+    }
+  }
+
+  .nav-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    visibility: hidden;
+    opacity: 0;
+    font-size: 1.5rem;
+  }
+}
+
+// 小型電腦以下
+@media screen and (max-width: 1024px) {
+  header.front_page {
+    .nav-btn {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    nav.nav-links {
+      ul {
+        flex-direction: column;
+        li {
+          a {
+            font-size: 1.25rem;
+          }
+        }
+      }
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 45%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #141414c7;
+      transition: 1s;
+      transform: translateY(-100vh);
+
+      button.nav-close-btn {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+    }
+
+    nav.responsive_nav {
+      transform: none;
+    }
+  }
+}
