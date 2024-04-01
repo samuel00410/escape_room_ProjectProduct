@@ -16,6 +16,7 @@ require("./config/googleStrategy");
 require("./config/facebookStrategy");
 const session = require("express-session");
 const path = require("path");
+const port = process.env.PORT || 8080;
 const https = require("https");
 const fs = require("fs");
 const corsOptions = {
@@ -27,6 +28,7 @@ const corsOptions = {
 app.use("/uploadImages", express.static("uploadImages")); // 提供靜態文件訪問，這樣配置後，任何存儲在 uploadImages 目錄的圖片都可以通過 http://yourserver.com/uploadImages/your-image-name.jpg 訪問。 (這意味著這個目錄下的文件可以通過 HTTP 直接訪問。)
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 // 為了前端能訪問後端server用
 app.use(cors(corsOptions));
@@ -87,7 +89,16 @@ app.get("/test", (req, res) => {
   res.send("測試成功，成功連接上頁面...");
 });
 
+if (
+  process.env.NODE_ENV === "production" ||
+  process.env.NODE_ENV === "staging"
+) {
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
+
 // HTTP 伺服器
-app.listen(8080, () => {
+app.listen(port, () => {
   console.log("伺服器正在聆聽port 8080...");
 });
