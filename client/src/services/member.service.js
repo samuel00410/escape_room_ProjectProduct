@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${process.env.REACT_APP_SERVER_URL}/api`;
+const API_URL = `https://escaperoom-project-6a9688f7a146.herokuapp.com/api`;
 
 class MemberService {
   // 檢查本機儲存空間是否有存放會員的token (有無登入過會員)

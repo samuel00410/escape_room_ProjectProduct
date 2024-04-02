@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `${process.env.REACT_APP_SERVER_URL}/api/reserve`;
+const API_URL = `https://escaperoom-project-6a9688f7a146.herokuapp.com/api/reserve`;
 
 class Reserve {
   // 取得已登入的會員的JWT (從本地儲存空間取出)
