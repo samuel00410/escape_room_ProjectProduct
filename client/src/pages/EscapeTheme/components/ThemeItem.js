@@ -10,7 +10,7 @@ import { ThemeContext } from "../../../ThemeContext";
 const ThemeItem = ({ item, currentMember }) => {
   // 假設 text 是從後端取得的字符串資料 (密室主題的介紹內文)
   const text = item.description;
-  const serverURL = process.env.REACT_APP_SERVER_URL;
+  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
   const image_URL = `${serverURL}/${item.imageURL}`;
   const { setSelectedTheme } = useContext(ThemeContext); // 從 ThemeContext 抓取 setSelectedTheme()方法
 
