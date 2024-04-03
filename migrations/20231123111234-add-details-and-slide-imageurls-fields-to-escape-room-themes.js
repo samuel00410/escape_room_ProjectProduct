@@ -3,13 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.addColumn("EscapeRoomThemes", "details", {
+    await queryInterface.addColumn("escaperoomthemes", "details", {
       type: Sequelize.JSON,
       allowNull: false,
       defaultValue: {},
     });
 
-    await queryInterface.addColumn("EscapeRoomThemes", "slideImageUrls", {
+    await queryInterface.addColumn("escaperoomthemes", "slideImageUrls", {
       type: Sequelize.JSON,
       allowNull: false,
       defaultValue: [],
@@ -17,7 +17,7 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn("EscapeRoomThemes", "details");
-    await queryInterface.removeColumn("EscapeRoomThemes", "slideImageUrls");
+    await queryInterface.removeColumn("escaperoomthemes", "details");
+    await queryInterface.removeColumn("escaperoomthemes", "slideImageUrls");
   },
 };

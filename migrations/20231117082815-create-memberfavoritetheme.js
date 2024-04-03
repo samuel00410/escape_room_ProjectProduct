@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("MemberFavoriteThemes", {
+    await queryInterface.createTable("memberfavoritethemes", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -26,7 +26,7 @@ module.exports = {
         allowNull: false,
         references: {
           model: {
-            tableName: "escapeRoomThemes", // 注意這裡是資料表的名稱，可能需要根據您的實際資料表名稱進行調整
+            tableName: "escaperoomthemes", // 注意這裡是資料表的名稱，可能需要根據您的實際資料表名稱進行調整
           },
           key: "id",
         },
@@ -44,6 +44,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("MemberFavoriteThemes");
+    await queryInterface.dropTable("memberfavoritethemes");
   },
 };

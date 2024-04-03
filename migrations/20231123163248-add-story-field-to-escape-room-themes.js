@@ -3,13 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.addColumn("EscapeRoomThemes", "storyContent", {
+    await queryInterface.addColumn("escaperoomthemes", "storyContent", {
       type: Sequelize.TEXT,
       allowNull: false,
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.removeColumn("EscapeRoomThemes", "storyContent");
+    await queryInterface.removeColumn("escaperoomthemes", "storyContent");
   },
 };
