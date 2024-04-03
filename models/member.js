@@ -61,6 +61,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Member",
+      tableName: "members",
       hooks: {
         beforeSave: async (member, options) => {
           // 若使用者為新用戶或密碼有變更，則將密碼進行雜湊處理

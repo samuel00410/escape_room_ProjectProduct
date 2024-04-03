@@ -25,7 +25,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         references: {
           model: {
-            tableName: "escapeRoomThemes", // 注意這裡是資料表的名稱，可能需要根據您的實際資料表名稱進行調整
+            tableName: "escaperoomthemes", // 注意這裡是資料表的名稱，可能需要根據您的實際資料表名稱進行調整
           },
           key: "id",
         },
@@ -34,6 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "MemberFavoriteTheme",
+      tableName: "memberfavoritethemes",
     }
   );
   return MemberFavoriteTheme;
