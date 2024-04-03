@@ -50,7 +50,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "EscapeRoomTheme",
-      tableName: "escaperommthemes",
+      tableName: "escaperoomthemes",
       charset: "utf8mb4", // 遇到與 Unicode 字符（如中文字符）存儲有關的問題時，您需要確保數據庫和數據表使用 utf8mb4 字符集
       collate: "utf8mb4_unicode_ci",
     }
