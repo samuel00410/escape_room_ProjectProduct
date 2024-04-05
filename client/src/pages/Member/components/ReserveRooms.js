@@ -25,7 +25,8 @@ const ReserveContent = styled.div`
 
 const ReserveRooms = ({ themeData }) => {
   console.log(themeData);
-  const imageURL = `${process.env.REACT_APP_SERVER_URL}/${themeData.EscapeRoomTheme.imageURL}`;
+  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const imageURL = `${serverURL}/${themeData.EscapeRoomTheme.imageURL}`;
   const formattedDate = moment(themeData.reservationDate).format(
     "YYYY-MM-DD HH:mm"
   );
