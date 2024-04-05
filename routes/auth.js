@@ -131,10 +131,13 @@ router.get(
 router.get(
   "/google/redirect",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/login",
+    failureRedirect:
+      "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
   }),
   (req, res) => {
-    return res.redirect("http://localhost:3000/");
+    return res.redirect(
+      "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
+    );
   }
 );
 
