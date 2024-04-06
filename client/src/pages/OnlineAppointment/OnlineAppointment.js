@@ -336,7 +336,7 @@ const OnlineAppointment = () => {
                       id="horror"
                       type="radio"
                       name="category"
-                      value="驚悚恐怖"
+                      value="恐怖驚悚"
                       onChange={(e) => {
                         setCatgoryName(e.target.value);
                       }}
