@@ -4,13 +4,13 @@ import { ThemeProvider } from "./ThemeContext"; // 密室主題狀態
 import { ReservationProvider } from "./ReservationContext"; // 預訂資料狀態(日期、場次時間、價格)
 import AuthService from "./services/auth.service";
 import Loading from "./components/Loading";
-// import Layout from "./components/Layout";
-// import Home from "./pages/Home/Home";
-// import EscapeGame from "./pages/EscapeGame/EscapeGame";
-// import AboutEscape from "./pages/AboutEscape/AboutEscape";
-// import EscapeTheme from "./pages/EscapeTheme/EscapeTheme";
-// import ThemeIntro from "./pages/ThemeIntro/ThemeIntro";
-// import OnlineAppointment from "./pages/OnlineAppointment/OnlineAppointment";
+import Layout from "./components/Layout";
+import Home from "./pages/Home/Home";
+import EscapeGame from "./pages/EscapeGame/EscapeGame";
+import AboutEscape from "./pages/AboutEscape/AboutEscape";
+import EscapeTheme from "./pages/EscapeTheme/EscapeTheme";
+import ThemeIntro from "./pages/ThemeIntro/ThemeIntro";
+import OnlineAppointment from "./pages/OnlineAppointment/OnlineAppointment";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import Member from "./pages/Member/Member";
@@ -25,15 +25,15 @@ import CollectionPage from "./pages/Member/CollectionPage";
 import ReservePage from "./pages/Member/ReservePage";
 
 // Lazy loading components
-const Layout = lazy(() => import("./components/Layout"));
-const Home = lazy(() => import("./pages/Home/Home"));
-const EscapeGame = lazy(() => import("./pages/EscapeGame/EscapeGame"));
-const AboutEscape = lazy(() => import("./pages/AboutEscape/AboutEscape"));
-const EscapeTheme = lazy(() => import("./pages/EscapeTheme/EscapeTheme"));
-const ThemeIntro = lazy(() => import("./pages/ThemeIntro/ThemeIntro"));
-const OnlineAppointment = lazy(() =>
-  import("./pages/OnlineAppointment/OnlineAppointment")
-);
+// const Layout = lazy(() => import("./components/Layout"));
+// const Home = lazy(() => import("./pages/Home/Home"));
+// const EscapeGame = lazy(() => import("./pages/EscapeGame/EscapeGame"));
+// const AboutEscape = lazy(() => import("./pages/AboutEscape/AboutEscape"));
+// const EscapeTheme = lazy(() => import("./pages/EscapeTheme/EscapeTheme"));
+// const ThemeIntro = lazy(() => import("./pages/ThemeIntro/ThemeIntro"));
+// const OnlineAppointment = lazy(() =>
+//   import("./pages/OnlineAppointment/OnlineAppointment")
+// );
 
 function App() {
   // 一開始就會去追蹤存放在 localStorage 裡面的使用者是誰
@@ -84,87 +84,85 @@ function App() {
     <BrowserRouter>
       <ThemeProvider>
         <ReservationProvider>
-          <Suspense fallback={<Loading />}>
-            <Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout
+                  currentMember={currentMember}
+                  setCurrentMember={setCurrentMember}
+                />
+              }
+            >
+              <Route index element={<Home />} />
+              <Route path="/escape_game" element={<EscapeGame />} />
+              <Route path="/aboutEscape" element={<AboutEscape />} />
+              {/* 顯示密室主題頁面 */}
               <Route
-                path="/"
+                path="/theme"
+                element={<EscapeTheme currentMember={currentMember} />}
+              />
+              {/* 密室主題內容介紹頁面 */}
+              <Route path="/themeintro/:id" element={<ThemeIntro />} />
+              {/* 預約密室主題頁面 */}
+              <Route path="/appointment" element={<OnlineAppointment />} />
+              <Route
+                path="/login"
                 element={
-                  <Layout
+                  <Login
                     currentMember={currentMember}
                     setCurrentMember={setCurrentMember}
                   />
                 }
-              >
-                <Route index element={<Home />} />
-                <Route path="/escape_game" element={<EscapeGame />} />
-                <Route path="/aboutEscape" element={<AboutEscape />} />
-                {/* 顯示密室主題頁面 */}
-                <Route
-                  path="/theme"
-                  element={<EscapeTheme currentMember={currentMember} />}
-                />
-                {/* 密室主題內容介紹頁面 */}
-                <Route path="/themeintro/:id" element={<ThemeIntro />} />
-                {/* 預約密室主題頁面 */}
-                <Route path="/appointment" element={<OnlineAppointment />} />
-                <Route
-                  path="/login"
-                  element={
-                    <Login
-                      currentMember={currentMember}
-                      setCurrentMember={setCurrentMember}
-                    />
-                  }
-                />
-                <Route path="/register" element={<Register />} />
-                {/* 預約密室內容的頁面 */}
-                <Route path="/reserve" element={<ReserveArea />} />
-                <Route path="/choosedate" element={<ChooseDate />} />
-                {/* <Route path="/information" element={<Information />} />
+              />
+              <Route path="/register" element={<Register />} />
+              {/* 預約密室內容的頁面 */}
+              <Route path="/reserve" element={<ReserveArea />} />
+              <Route path="/choosedate" element={<ChooseDate />} />
+              {/* <Route path="/information" element={<Information />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/orderconfirm" element={<OrderConfirm />} /> */}
-                <Route
-                  path="/reservationprocess"
-                  element={<ReservationProcess currentMember={currentMember} />}
-                />
-                {/* 會員專區 */}
-                <Route
-                  path="/member"
-                  element={
-                    <Member
-                      currentMember={currentMember}
-                      setCurrentMember={setCurrentMember}
-                    />
-                  }
-                />
-                {/* 我的收藏 */}
-                <Route
-                  path="/collectionRooms"
-                  element={
-                    <CollectionPage
-                      currentMember={currentMember}
-                      setCurrentMember={setCurrentMember}
-                    />
-                  }
-                />
-                {/* 預約密室 */}
-                <Route
-                  path="/reserveRooms"
-                  element={
-                    <ReservePage
-                      currentMember={currentMember}
-                      setCurrentMember={setCurrentMember}
-                    />
-                  }
-                />
-                {/* 創建者專用 */}
-                <Route
-                  path="/addnewtheme"
-                  element={<AddNewTheme currentMember={currentMember} />}
-                />
-              </Route>
-            </Routes>
-          </Suspense>
+              <Route
+                path="/reservationprocess"
+                element={<ReservationProcess currentMember={currentMember} />}
+              />
+              {/* 會員專區 */}
+              <Route
+                path="/member"
+                element={
+                  <Member
+                    currentMember={currentMember}
+                    setCurrentMember={setCurrentMember}
+                  />
+                }
+              />
+              {/* 我的收藏 */}
+              <Route
+                path="/collectionRooms"
+                element={
+                  <CollectionPage
+                    currentMember={currentMember}
+                    setCurrentMember={setCurrentMember}
+                  />
+                }
+              />
+              {/* 預約密室 */}
+              <Route
+                path="/reserveRooms"
+                element={
+                  <ReservePage
+                    currentMember={currentMember}
+                    setCurrentMember={setCurrentMember}
+                  />
+                }
+              />
+              {/* 創建者專用 */}
+              <Route
+                path="/addnewtheme"
+                element={<AddNewTheme currentMember={currentMember} />}
+              />
+            </Route>
+          </Routes>
         </ReservationProvider>
       </ThemeProvider>
     </BrowserRouter>
