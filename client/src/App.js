@@ -4,7 +4,7 @@ import { ThemeProvider } from "./ThemeContext"; // 密室主題狀態
 import { ReservationProvider } from "./ReservationContext"; // 預訂資料狀態(日期、場次時間、價格)
 import AuthService from "./services/auth.service";
 import Loading from "./components/Loading";
-import Layout from "./components/Layout";
+// import Layout from "./components/Layout";
 // import Home from "./pages/Home/Home";
 // import EscapeGame from "./pages/EscapeGame/EscapeGame";
 // import AboutEscape from "./pages/AboutEscape/AboutEscape";
@@ -25,6 +25,7 @@ import CollectionPage from "./pages/Member/CollectionPage";
 import ReservePage from "./pages/Member/ReservePage";
 
 // Lazy loading components
+const Layout = lazy(() => import("./components/Layout"));
 const Home = lazy(() => import("./pages/Home/Home"));
 const EscapeGame = lazy(() => import("./pages/EscapeGame/EscapeGame"));
 const AboutEscape = lazy(() => import("./pages/AboutEscape/AboutEscape"));
