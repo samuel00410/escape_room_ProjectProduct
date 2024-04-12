@@ -26,7 +26,7 @@ import ReservePage from "./pages/Member/ReservePage";
 
 // Lazy loading components
 const Layout = lazy(() => import("./components/Layout"));
-const Home = lazy(() => import("./pages/Home/Home"));
+const Home = lazy(() => wait(1200).then(() => import("./pages/Home/Home")));
 const EscapeGame = lazy(() => import("./pages/EscapeGame/EscapeGame"));
 const AboutEscape = lazy(() => import("./pages/AboutEscape/AboutEscape"));
 const EscapeTheme = lazy(() => import("./pages/EscapeTheme/EscapeTheme"));
@@ -170,5 +170,11 @@ function App() {
     </BrowserRouter>
   );
 }
+
+const wait = (time) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+};
 
 export default App;
