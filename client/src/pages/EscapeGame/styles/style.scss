@@ -1,13 +1,17 @@
 section.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow-x: auto;
   background-color: #000;
   margin: 0;
+  height: 100vh;
   section.escape-game {
     //   width: 100%;
     //   max-width: 1920px;
     //   height: calc(100vw * (1080 / 1920));
     //   max-height: 1080px;
-    width: 1920px; /* 固定寬度為 1920px */
+    min-width: 1920px; /* 固定寬度為 1920px */
     height: 1080px; /* 固定高度為 1080px */
     margin: 0 auto;
     position: relative;

@@ -194,22 +194,20 @@ const IntroLeftBlock = styled.div`
 
   // 手機板行動裝置 (寬度650px以內)
   @media screen and (max-width: 650px) {
-    bottom: -20%;
     left: 25%;
     width: 70%;
   }
 
   //  (寬度550px以內)
   @media screen and (max-width: 550px) {
-    width: 90%;
-    left: 10%;
+    width: 100%;
+    left: 0;
   }
 
   //  (寬度370px以內)
   @media screen and (max-width: 370px) {
     width: 100%;
     left: 0%;
-    bottom: -40%;
   }
 `;
 
@@ -243,22 +241,20 @@ const IntroRightBlock = styled.div`
 
   // 手機板行動裝置 (寬度650px以內)
   @media screen and (max-width: 650px) {
-    bottom: -20%;
     left: 25%;
     width: 70%;
   }
 
   //  (寬度550px以內)
   @media screen and (max-width: 550px) {
-    width: 90%;
-    left: 10%;
+    width: 100%;
+    left: 0%;
   }
 
   //  (寬度370px以內)
   @media screen and (max-width: 370px) {
     width: 100%;
     left: 0%;
-    bottom: -40%;
   }
 
   // 手機板行動裝置 (寬度335px以內)

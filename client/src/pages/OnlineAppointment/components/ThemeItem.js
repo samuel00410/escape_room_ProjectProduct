@@ -28,25 +28,31 @@ const Theme = styled.div`
   div.title-go-reserve {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0.75rem 0 0.75rem 0.25rem;
-    p {
-      padding-left: 0.5rem;
-      color: #ffff;
-      font-size: 1.25rem;
+    div.title-for-name {
+      padding: 0 0.5rem 0 0.5rem;
+      flex-grow: 1;
+      p {
+        color: #ffff;
+        font-size: 1.25rem;
+      }
     }
+    div.title-for-reserve {
+      a {
+        white-space: nowrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 20px;
+        background-color: #f30;
+        color: #fff;
+        padding: 0 1rem;
+        margin-right: 0.25rem;
 
-    a {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-radius: 20px;
-      background-color: #f30;
-      color: #fff;
-      padding: 0 1rem;
-      margin-right: 0.25rem;
-
-      &:hover {
-        opacity: 0.75;
+        &:hover {
+          opacity: 0.75;
+        }
       }
     }
   }
@@ -156,10 +162,15 @@ const ThemeItem = ({ data }) => {
         style={{ backgroundImage: `url(${image_URL}` }}
       ></div>
       <div className="title-go-reserve">
-        <p>{data.name}</p>
-        <Link to="/reserve" onClick={handleSelect}>
-          預約
-        </Link>
+        <div className="title-for-name">
+          <p>{data.name}</p>
+        </div>
+
+        <div className="title-for-reserve">
+          <Link to="/reserve" onClick={handleSelect}>
+            預約
+          </Link>
+        </div>
       </div>
       <div className="check-rule">
         <div className="descript">
