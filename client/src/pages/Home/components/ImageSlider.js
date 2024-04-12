@@ -56,6 +56,7 @@ const GoAdventure = styled.div`
   margin: 1.5rem 0;
   transition: all 0.5s;
   a {
+    white-space: nowrap;
     font-size: 1.2rem;
     border-radius: 30px;
     border: darkgray;
