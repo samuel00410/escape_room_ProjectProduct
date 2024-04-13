@@ -83,8 +83,19 @@ const GoAdventure = styled.div`
   }
 `;
 
+// 圖片預加載
+const usePreloadImages = (imageUrls) => {
+  useEffect(() => {
+    imageUrls.forEach((url) => {
+      const img = new Image();
+      img.sr = url;
+    });
+  }, [imageUrls]);
+};
+
 const ImageSlider = () => {
   const images = [TopBackground1, TopBackground2, TopBackground3];
+  usePreloadImages(images);
   let [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
