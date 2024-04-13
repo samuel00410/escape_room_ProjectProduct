@@ -88,7 +88,7 @@ const usePreloadImages = (imageUrls) => {
   useEffect(() => {
     imageUrls.forEach((url) => {
       const img = new Image();
-      img.sr = url;
+      img.src = url;
     });
   }, [imageUrls]);
 };
