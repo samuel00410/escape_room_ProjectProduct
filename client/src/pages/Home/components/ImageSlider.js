@@ -88,16 +88,14 @@ const ImageSlider = () => {
   let [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    // 每五秒鐘切換圖片背景
-    const interval = setInterval(() => {
-      // 計算下一張圖片的索引
-      const nextIndex = (currentImageIndex + 1) % images.length;
-      setCurrentImageIndex(nextIndex);
+    // 設定每5秒鐘切換圖片背景
+    let interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
 
-    // 在组件卸载时清除定时器
+    // 當觸發重新渲染or組件卸載時被呼叫
     return () => clearInterval(interval);
-  }, [currentImageIndex, images.length]);
+  }, []);
 
   return (
     <ImgSlider currentImage={images[currentImageIndex]}>
