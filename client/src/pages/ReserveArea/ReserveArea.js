@@ -153,6 +153,10 @@ const GoReserve = styled.div`
 const ReserveArea = () => {
   const { selectedTheme } = useContext(ThemeContext);
 
+  useEffect(() => {
+    window.scroll({ top: 0, behavior: "smooth" });
+  }, []);
+
   if (!selectedTheme) {
     return;
   }

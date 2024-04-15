@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styled from "@emotion/styled";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import ReserveHeader from "../../components/ReserveHeader";
@@ -137,6 +137,10 @@ const ReservationProcess = ({ currentMember }) => {
     return currentMember ? currentMember.member.phoneNumber : "";
   });
   const [errorMsg, setErrorMsg] = useState([]);
+
+  useEffect(() => {
+    window.scroll({ top: 0, behavior: "smooth" });
+  }, [currentStep]);
 
   const showStep = (step) => {
     switch (step) {
