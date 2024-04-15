@@ -24,7 +24,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: `/api/auth/facebook/redirect`,
+      callbackURL: `https://escaperoom-project-6a9688f7a146.herokuapp.com/api/auth/facebook/redirect`,
       profileFields: ["id", "displayName", "photos", "email"],
     },
     async (accessToken, refreshToken, profile, done) => {

@@ -154,11 +154,14 @@ router.get(
 router.get(
   "/facebook/redirect",
   passport.authenticate("facebook", {
-    failureRedirect: "http://localhost:3000/login",
+    failureRedirect:
+      "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
   }),
   (req, res) => {
     // 登入成功，重定向到主頁面
-    return res.redirect("http://localhost:3000/");
+    return res.redirect(
+      "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
+    );
   }
 );
 
