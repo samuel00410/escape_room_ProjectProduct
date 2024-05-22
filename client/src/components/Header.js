@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./styles/Header.css";
 import { ReactComponent as EscapeLogo } from "../images/logo_man.svg";
@@ -9,6 +9,11 @@ import AuthService from "../services/auth.service";
 const Header = ({ currentMember, setCurrentMember }) => {
   const [activeLink, setActiveLink] = useState("/");
   const navRef = useRef();
+
+  // 每次畫面選染完後，就會去追蹤現在的頁面路徑
+  useEffect(() => {
+    setActiveLink(window.location.pathname);
+  });
 
   const handleActive = (path) => {
     setActiveLink(path);
