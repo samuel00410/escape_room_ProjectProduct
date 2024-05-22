@@ -299,7 +299,7 @@ const Login = ({ currentMember, setCurrentMember }) => {
             setTimeout(() => {
               // navigate("/");
               directToWhere();
-            }, 750); // 這裡的延遲時間（750 毫秒）可以根據需求調整
+            }, 250); // 這裡的延遲時間（750 毫秒）可以根據需求調整
           },
           autoClose: 1000, // Toast 訊息顯示的持續時間
         });
