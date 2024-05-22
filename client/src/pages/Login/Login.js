@@ -301,7 +301,7 @@ const Login = ({ currentMember, setCurrentMember }) => {
               directToWhere();
             }, 750); // 這裡的延遲時間（750 毫秒）可以根據需求調整
           },
-          autoClose: 5000, // Toast 訊息顯示的持續時間
+          autoClose: 1000, // Toast 訊息顯示的持續時間
         });
 
         localStorage.setItem("member", JSON.stringify(response.data)); // 將 使用者資訊(包含JWT) 存放在localStorage裡
