@@ -188,7 +188,7 @@ const CollectionPage = ({ currentMember, setCurrentMember }) => {
 
     getCollections();
   }, []);
-  console.log(collectRooms);
+  // console.log(collectRooms);
   return (
     <Wrapper>
       {!currentMember && (

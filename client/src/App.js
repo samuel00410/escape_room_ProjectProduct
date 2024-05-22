@@ -78,7 +78,7 @@ function App() {
     checkUser();
   }, []);
 
-  console.log(currentMember);
+  // console.log(currentMember);
 
   return (
     <BrowserRouter>

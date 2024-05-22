@@ -200,7 +200,7 @@ const ChooseDate = () => {
 
   // 選取的密室主題
   const { selectedTheme } = useContext(ThemeContext);
-  console.log(selectedTheme);
+  // console.log(selectedTheme);
 
   // 選取預訂日期
   const { reservationDate, setReservationDate } =

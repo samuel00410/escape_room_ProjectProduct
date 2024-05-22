@@ -136,7 +136,7 @@ const StepperControl = ({
       // 如果成功送出預約，才能完成到下一步
       if (response) {
         const result = response.data;
-        console.log(result);
+        // console.log(result);
         setOrderId(result.reserveData.id);
         setOrderTheme(result.themeData.name);
         setOrderPrice(result.reserveData.totalPrice);
@@ -162,7 +162,7 @@ const StepperControl = ({
       // 如果成功送出預約，才能完成到下一步
       if (response) {
         const result = response.data;
-        console.log(result);
+        // console.log(result);
         setOrderId(result.reserveData.id);
         setOrderTheme(result.themeData.name);
         setOrderPrice(result.reserveData.totalPrice);
