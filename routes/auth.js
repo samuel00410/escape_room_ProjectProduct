@@ -142,28 +142,28 @@ router.get(
 );
 
 // Facebook方式登入
-router.get(
-  "/facebook",
-  passport.authenticate("facebook", {
-    scope: "email",
-    prompt: "select_account",
-  })
-);
+// router.get(
+//   "/facebook",
+//   passport.authenticate("facebook", {
+//     scope: "email",
+//     prompt: "select_account",
+//   })
+// );
 
 // Facebook的重新導向URI
-router.get(
-  "/facebook/redirect",
-  passport.authenticate("facebook", {
-    failureRedirect:
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
-  }),
-  (req, res) => {
-    // 登入成功，重定向到主頁面
-    return res.redirect(
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
-    );
-  }
-);
+// router.get(
+//   "/facebook/redirect",
+//   passport.authenticate("facebook", {
+//     failureRedirect:
+//       "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
+//   }),
+//   (req, res) => {
+//     // 登入成功，重定向到主頁面
+//     return res.redirect(
+//       "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
+//     );
+//   }
+// );
 
 // 檢查當前用戶狀態。這個 API 應該能夠識別用戶是通過 JWT 還是 Session登入的
 router.get("/current_user", async (req, res) => {
