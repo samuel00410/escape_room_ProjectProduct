@@ -119,27 +119,27 @@ router.get("/logout", (req, res) => {
 });
 
 // Google方式登入
-router.get(
-  "/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"],
-    prompt: "select_account",
-  })
-);
+// router.get(
+//   "/google",
+//   passport.authenticate("google", {
+//     scope: ["profile", "email"],
+//     prompt: "select_account",
+//   })
+// );
 
 // Google的重新導向URI
-router.get(
-  "/google/redirect",
-  passport.authenticate("google", {
-    failureRedirect:
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
-  }),
-  (req, res) => {
-    return res.redirect(
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
-    );
-  }
-);
+// router.get(
+//   "/google/redirect",
+//   passport.authenticate("google", {
+//     failureRedirect:
+//       "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
+//   }),
+//   (req, res) => {
+//     return res.redirect(
+//       "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
+//     );
+//   }
+// );
 
 // Facebook方式登入
 // router.get(
