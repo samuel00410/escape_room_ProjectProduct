@@ -8,9 +8,18 @@ if (!url) {
   );
 }
 
-let match = url.match(/mysql:\/\/([^:]+):([^@]+)@([^\/]+)\/([^?]+)/);
+// let match = url.match(/mysql:\/\/([^:]+):([^@]+)@([^\/]+)\/([^?]+)/);
+// if (!match) {
+//   throw new Error("GOOGLE_CLOUD_DATABASE_URL format is invalid.");
+// }
+
+let match = url.match(
+  /^mysql:\/\/([^:]+):([^@]+)@([^:\/]+)(?::(\d+))?\/([^?]+)$/
+);
 if (!match) {
-  throw new Error("GOOGLE_CLOUD_DATABASE_URL format is invalid.");
+  throw new Error(
+    "GOOGLE_CLOUD_DATABASE_URL format is invalid. Ensure it follows the format: mysql://username:password@host:port/database"
+  );
 }
 
 module.exports = {
@@ -37,8 +46,9 @@ module.exports = {
   production: {
     username: match[1],
     password: match[2],
-    database: match[4],
+    database: match[5],
     host: match[3],
+    port: match[4] || 3306, // 默認使用 3306 埠
     dialect: "mysql",
     charset: "utf8mb4",
     collate: "utf8mb4_unicode_ci",
