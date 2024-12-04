@@ -1,7 +1,17 @@
 require("dotenv").config();
 
 let url = process.env.GOOGLE_CLOUD_DATABASE_URL;
+
+if (!url) {
+  throw new Error(
+    "GOOGLE_CLOUD_DATABASE_URL is not defined in the environment variables."
+  );
+}
+
 let match = url.match(/mysql:\/\/([^:]+):([^@]+)@([^\/]+)\/([^?]+)/);
+if (!match) {
+  throw new Error("GOOGLE_CLOUD_DATABASE_URL format is invalid.");
+}
 
 module.exports = {
   development: {
