@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-let url = process.env.CLEARDB_DATABASE_URL;
+let url = process.env.GOOGLE_CLOUD_DATABASE_URL;
 let match = url.match(/mysql:\/\/([^:]+):([^@]+)@([^\/]+)\/([^?]+)/);
 
 module.exports = {
