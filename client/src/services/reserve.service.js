@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `https://escaperoom-project-6a9688f7a146.herokuapp.com/api/reserve`;
+const API_URL = `https://escaperoomprojectproduct-production.up.railway.app/api/reserve`;
 
 class Reserve {
   // 取得已登入的會員的JWT (從本地儲存空間取出)
@@ -34,7 +34,7 @@ class Reserve {
     escapeRoomThemeId,
     reservationDate,
     people,
-    totalPrice
+    totalPrice,
   ) {
     return axios.post(API_URL + "/reserveByQuest", {
       name,
@@ -53,7 +53,7 @@ class Reserve {
     escapeRoomThemeId,
     reservationDate,
     people,
-    totalPrice
+    totalPrice,
   ) {
     const config = this.getRequestConfig();
 
@@ -66,7 +66,7 @@ class Reserve {
         people,
         totalPrice,
       },
-      config
+      config,
     );
   }
 }

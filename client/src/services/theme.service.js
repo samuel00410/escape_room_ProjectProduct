@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `https://escaperoom-project-6a9688f7a146.herokuapp.com/api`;
+const API_URL = `https://escaperoomprojectproduct-production.up.railway.app/api`;
 
 class ThemeService {
   // 新增新的密室主題

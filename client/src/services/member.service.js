@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = `https://escaperoom-project-6a9688f7a146.herokuapp.com/api`;
+const API_URL = `https://escaperoomprojectproduct-production.up.railway.app/api`;
 
 class MemberService {
   // 檢查本機儲存空間是否有存放會員的token (有無登入過會員)
@@ -26,7 +26,7 @@ class MemberService {
 
     return axios.get(
       API_URL + `/members/checkFavorite/${memberId}/${themeId}`,
-      config
+      config,
     );
   }
 
@@ -38,7 +38,7 @@ class MemberService {
     return axios.post(
       API_URL + "/members/addFavorite",
       { memberId, themeId },
-      config
+      config,
     );
   }
 
@@ -60,7 +60,7 @@ class MemberService {
 
     return axios.get(
       API_URL + `/members/showCollectThemes/${memberId}`,
-      config
+      config,
     );
   }
 
