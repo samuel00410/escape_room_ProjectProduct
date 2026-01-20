@@ -20,7 +20,7 @@ module.exports = {
       escapeRoomThemeId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "escapeRoomThemes",
+          model: "escaperoomthemes",
           key: "id",
         },
         comment: "密室主題ID",
