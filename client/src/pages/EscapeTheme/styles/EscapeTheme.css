@@ -79,9 +79,9 @@ section.part-list-theme div.theme_container div.theme_preview .theme_preview_fil
   right: 0;
   bottom: 0;
   z-index: -1;
-  background-color: rgba(0, 0, 0, 0.25); /* 例如，使用半透明的白色 */
-  -webkit-backdrop-filter: blur(1px);
-          backdrop-filter: blur(1px); /* 使用模糊效果作為示例 */
+  background-color: rgba(0, 0, 0, 0); /* 預設透明 */
+  -webkit-backdrop-filter: blur(0px);
+          backdrop-filter: blur(0px); /* 預設無模糊 */
   transition: all 0.5s ease-in-out;
 }
 section.part-list-theme div.theme_container div.theme_preview div.content_container {
@@ -145,7 +145,9 @@ section.part-list-theme div.theme_container div.theme_preview:hover div.content_
   opacity: 1;
 }
 section.part-list-theme div.theme_container div.theme_preview:hover .theme_preview_filter {
-  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* hover時變暗，讓文字更清楚 */
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
 }
 section.part-list-theme div.theme_container div.game_rule {
   width: 100%;
