@@ -8,7 +8,6 @@ import { ReactComponent as PlayersIcon } from "../../images/3289574_clan_family_
 import { ReactComponent as PriceIcon } from "../../images/9165555_coin_money_icon.svg";
 import { ReactComponent as PlayingTimeIcon } from "../../images/hourglass.svg";
 import SlidePicture from "./components/SlidePicture";
-import Comment from "./components/Comment";
 import ThemeService from "../../services/theme.service";
 import { v4 as uuidv4 } from "uuid";
 import SkeletonLoader from "./components/SkeletonLoader";
@@ -145,6 +144,7 @@ const Content = styled.div`
 // 人數、價格、遊戲時間 區塊
 const PatternBlock = styled.section`
   margin-top: 5rem;
+  margin-bottom: 5rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -154,6 +154,7 @@ const PatternBlock = styled.section`
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
+    margin-bottom: 3rem;
   }
 `;
 
@@ -336,9 +337,6 @@ const ThemeIntro = () => {
           </GameInstructions>
         </PatternContainer>
       </PatternBlock>
-
-      {/* 網友評論 */}
-      <Comment />
     </Wrapper>
   );
 };

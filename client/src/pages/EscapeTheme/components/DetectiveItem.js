@@ -9,7 +9,8 @@ import { ThemeContext } from "../../../ThemeContext";
 
 const DetectiveItem = ({ item, currentMember }) => {
   const text = item.description;
-  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const serverURL =
+    "https://escaperoomprojectproduct-production.up.railway.app";
   const image_URL = `${serverURL}/${item.imageURL}`;
   const { setSelectedTheme } = useContext(ThemeContext); // 從 ThemeContext 抓取 setSelectedTheme()方法
 

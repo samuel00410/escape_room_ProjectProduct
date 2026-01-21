@@ -13,7 +13,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
   console.log(
-    "Deserialize使用者...使用serializeUser儲存的id，去找到資料庫內的資料"
+    "Deserialize使用者...使用serializeUser儲存的id，去找到資料庫內的資料",
   );
   let foundMember = await Member.findOne({ where: { id } });
   done(null, foundMember); // 將 req.user 這個屬性設定為 foundMember
@@ -24,7 +24,7 @@ passport.use(
     {
       clientID: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: `https://escaperoom-project-6a9688f7a146.herokuapp.com/api/auth/facebook/redirect`,
+      callbackURL: `https://escaperoomprojectproduct-production.up.railway.app/api/auth/facebook/redirect`,
       profileFields: ["id", "displayName", "photos", "email"],
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -49,6 +49,6 @@ passport.use(
         logger.info("已成功儲存新會員。");
         done(null, newMember);
       }
-    }
-  )
+    },
+  ),
 );

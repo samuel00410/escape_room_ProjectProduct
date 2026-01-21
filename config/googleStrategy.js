@@ -13,7 +13,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
   logger.info(
-    "Deserialize使用者...使用serializeUser儲存的id，去找到資料庫內的資料"
+    "Deserialize使用者...使用serializeUser儲存的id，去找到資料庫內的資料",
   );
   let foundMember = await Member.findOne({ where: { id } });
   done(null, foundMember); // 將 req.user 這個屬性設定為 foundMember
@@ -24,7 +24,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: `https://escaperoom-project-6a9688f7a146.herokuapp.com/api/auth/google/redirect`, // (因為passport她會自動把ID跟secret自動帶去做OAuth，最後會得到token和從使用者那得到的資料)如果所有的驗證都完成了，就會重新導向到這個URL
+      callbackURL: `https://escaperoomprojectproduct-production.up.railway.app/api/auth/google/redirect`, // (因為passport她會自動把ID跟 secret自動帶去做OAuth，最後會得到token和從使用者那得到的資料)如果所有的驗證都完成了，就會重新導向到這個URL
     },
     // function
     async (accessToken, refreshToken, profile, done) => {
@@ -49,6 +49,6 @@ passport.use(
         logger.info("成功創建新會員。");
         done(null, newMember);
       }
-    }
-  )
+    },
+  ),
 );
