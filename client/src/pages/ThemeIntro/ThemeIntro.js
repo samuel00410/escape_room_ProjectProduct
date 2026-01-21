@@ -17,6 +17,11 @@ const Wrapper = styled.div`
   background-image: url(${backgroundImg});
   background-size: cover;
   background-position: center;
+  padding-bottom: 5rem;
+
+  @media screen and (max-width: 600px) {
+    padding-bottom: 3rem;
+  }
 `;
 
 // const Background = styled.div`
@@ -144,7 +149,6 @@ const Content = styled.div`
 // 人數、價格、遊戲時間 區塊
 const PatternBlock = styled.section`
   margin-top: 5rem;
-  margin-bottom: 5rem;
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -154,7 +158,6 @@ const PatternBlock = styled.section`
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    margin-bottom: 3rem;
   }
 `;
 
