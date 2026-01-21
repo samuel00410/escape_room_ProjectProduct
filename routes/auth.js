@@ -124,7 +124,7 @@ router.get(
   passport.authenticate("google", {
     scope: ["profile", "email"],
     prompt: "select_account",
-  })
+  }),
 );
 
 // Google的重新導向URI
@@ -132,13 +132,13 @@ router.get(
   "/google/redirect",
   passport.authenticate("google", {
     failureRedirect:
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
+      "https://escaperoomprojectproduct-production.up.railway.app/login",
   }),
   (req, res) => {
     return res.redirect(
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
+      "https://escaperoomprojectproduct-production.up.railway.app/",
     );
-  }
+  },
 );
 
 // Facebook方式登入
@@ -147,7 +147,7 @@ router.get(
   passport.authenticate("facebook", {
     scope: "email",
     prompt: "select_account",
-  })
+  }),
 );
 
 // Facebook的重新導向URI
@@ -155,14 +155,14 @@ router.get(
   "/facebook/redirect",
   passport.authenticate("facebook", {
     failureRedirect:
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/login",
+      "https://escaperoomprojectproduct-production.up.railway.app/login",
   }),
   (req, res) => {
     // 登入成功，重定向到主頁面
     return res.redirect(
-      "https://escaperoom-project-6a9688f7a146.herokuapp.com/"
+      "https://escaperoomprojectproduct-production.up.railway.app/",
     );
-  }
+  },
 );
 
 // 檢查當前用戶狀態。這個 API 應該能夠識別用戶是通過 JWT 還是 Session登入的
