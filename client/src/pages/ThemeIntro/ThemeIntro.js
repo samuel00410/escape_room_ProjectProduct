@@ -242,7 +242,8 @@ const ThemeIntro = () => {
     return <div>沒有找到任何主題資料。</div>;
   }
 
-  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const serverURL =
+    "https://escaperoomprojectproduct-production.up.railway.app";
   const image_URL = `${serverURL}/${themeData.imageURL}`;
 
   return (

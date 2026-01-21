@@ -21,7 +21,8 @@ const CollectContent = styled.div`
 `;
 
 const CollectionRooms = ({ eachRoom }) => {
-  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const serverURL =
+    "https://escaperoomprojectproduct-production.up.railway.app";
   const image_URL = `${serverURL}/${eachRoom.EscapeRoomTheme.imageURL}`;
 
   return (

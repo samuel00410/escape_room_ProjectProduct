@@ -8,7 +8,8 @@ import { v4 as uuidv4 } from "uuid";
 // import Image3 from "../../../images/maxresdefault.jpg";
 
 const SlidePicture = ({ themeData }) => {
-  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const serverURL =
+    "https://escaperoomprojectproduct-production.up.railway.app";
   const slideImgs = themeData.slideImageUrls.map((slideImg) => {
     return `${serverURL}/${slideImg}`;
   });

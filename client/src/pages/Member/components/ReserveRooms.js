@@ -25,10 +25,11 @@ const ReserveContent = styled.div`
 
 const ReserveRooms = ({ themeData }) => {
   // console.log(themeData);
-  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const serverURL =
+    "https://escaperoomprojectproduct-production.up.railway.app";
   const imageURL = `${serverURL}/${themeData.EscapeRoomTheme.imageURL}`;
   const formattedDate = moment(themeData.reservationDate).format(
-    "YYYY-MM-DD HH:mm"
+    "YYYY-MM-DD HH:mm",
   );
 
   return (

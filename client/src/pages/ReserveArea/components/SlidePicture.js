@@ -10,7 +10,8 @@ import Image3 from "../../../images/maxresdefault.jpg";
 
 const SlidePicture = () => {
   const { selectedTheme } = useContext(ThemeContext);
-  const serverURL = "https://escaperoom-project-6a9688f7a146.herokuapp.com";
+  const serverURL =
+    "https://escaperoomprojectproduct-production.up.railway.app";
   const slideImgs = selectedTheme.slideImageUrls.map((slideImg) => {
     return `${serverURL}/${slideImg}`;
   });
