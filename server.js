@@ -38,7 +38,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false },
-  })
+  }),
 );
 
 app.use(passport.initialize());
@@ -75,7 +75,7 @@ app.use("/api/members", customAuthMiddleware, memberRoutes);
 app.use(
   "/api/creator/category",
   passport.authenticate("jwt", { session: false }),
-  creatorRoutes
+  creatorRoutes,
 );
 
 // 密室主題相關
@@ -98,7 +98,8 @@ if (
   });
 }
 
+// 測試重新佈署
 // HTTP 伺服器
 app.listen(port, () => {
-  console.log("伺服器正在聆聽port 8080...");
+  console.log("伺服器正在聆聽port 8080..");
 });
