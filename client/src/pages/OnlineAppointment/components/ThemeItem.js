@@ -145,11 +145,11 @@ const DollarSign = styled(LuDollarSign)`
   }
 `;
 
+import { getImageUrl } from "../../../utils/imageHelper";
+
 const ThemeItem = ({ data }) => {
   const { setSelectedTheme } = useContext(ThemeContext);
-  const serverURL =
-    "https://escaperoomprojectproduct-production.up.railway.app";
-  const image_URL = `${serverURL}/${data.imageURL}`;
+  const image_URL = getImageUrl(data.imageURL);
 
   const handleSelect = () => {
     setSelectedTheme(data);

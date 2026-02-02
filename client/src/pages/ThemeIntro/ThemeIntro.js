@@ -11,6 +11,7 @@ import SlidePicture from "./components/SlidePicture";
 import ThemeService from "../../services/theme.service";
 import { v4 as uuidv4 } from "uuid";
 import SkeletonLoader from "./components/SkeletonLoader";
+import { getImageUrl } from "../../utils/imageHelper";
 
 const Wrapper = styled.div`
   min-height: 100vh;
@@ -248,7 +249,7 @@ const ThemeIntro = () => {
 
   const serverURL =
     "https://escaperoomprojectproduct-production.up.railway.app";
-  const image_URL = `${serverURL}/${themeData.imageURL}`;
+  const image_URL = getImageUrl(themeData.imageURL);
 
   return (
     <Wrapper>

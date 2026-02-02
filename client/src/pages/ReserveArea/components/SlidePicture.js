@@ -3,6 +3,7 @@ import { ThemeContext } from "../../../ThemeContext";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { RxDotFilled } from "react-icons/rx";
 import { v4 as uuidv4 } from "uuid";
+import { getImageUrl } from "../../../utils/imageHelper";
 // image
 import Image1 from "../../../images/智慧獵人_紅衣小女孩_01.webp";
 import Image2 from "../../../images/1535875648-1634489867_n.jpg";
@@ -10,10 +11,8 @@ import Image3 from "../../../images/maxresdefault.jpg";
 
 const SlidePicture = () => {
   const { selectedTheme } = useContext(ThemeContext);
-  const serverURL =
-    "https://escaperoomprojectproduct-production.up.railway.app";
   const slideImgs = selectedTheme.slideImageUrls.map((slideImg) => {
-    return `${serverURL}/${slideImg}`;
+    return getImageUrl(slideImg);
   });
   const slides = [Image1, Image2, Image3];
   const [currentIndex, setCurrentIndex] = useState(0);

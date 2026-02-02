@@ -6,12 +6,13 @@ import { ReactComponent as PlayTimeIcon } from "../../../images/時鐘圖案.svg
 import AddToFavorites from "./AddToFavorites";
 import { v4 as uuidv4 } from "uuid";
 import { ThemeContext } from "../../../ThemeContext";
+import { getImageUrl } from "../../../utils/imageHelper";
 
 const PuzzleItem = ({ item, currentMember }) => {
   const text = item.description;
   const serverURL =
     "https://escaperoomprojectproduct-production.up.railway.app";
-  const image_URL = `${serverURL}/${item.imageURL}`;
+  const image_URL = getImageUrl(item.imageURL);
   const { setSelectedTheme } = useContext(ThemeContext); // 從 ThemeContext 抓取 setSelectedTheme()方法
 
   const handleSelect = () => {

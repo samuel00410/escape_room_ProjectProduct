@@ -6,13 +6,14 @@ import { ReactComponent as PlayTimeIcon } from "../../../images/時鐘圖案.svg
 import AddToFavorites from "./AddToFavorites";
 import { v4 as uuidv4 } from "uuid";
 import { ThemeContext } from "../../../ThemeContext";
+import { getImageUrl } from "../../../utils/imageHelper";
 
 const HorrorItem = ({ item, currentMember }) => {
   // 假設 text 是從後端取得的字符串資料 (密室主題的介紹內文)
   const text = item.description;
   const serverURL =
     "https://escaperoomprojectproduct-production.up.railway.app";
-  const image_URL = `${serverURL}/${item.imageURL}`;
+  const image_URL = getImageUrl(item.imageURL);
   const { setSelectedTheme } = useContext(ThemeContext); // 從 ThemeContext 抓取 setSelectedTheme()方法
 
   const handleSelect = () => {

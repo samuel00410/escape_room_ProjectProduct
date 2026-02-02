@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { getImageUrl } from "../../../utils/imageHelper";
 
 const CollectItem = styled.div`
   display: flex;
@@ -23,7 +24,7 @@ const CollectContent = styled.div`
 const CollectionRooms = ({ eachRoom }) => {
   const serverURL =
     "https://escaperoomprojectproduct-production.up.railway.app";
-  const image_URL = `${serverURL}/${eachRoom.EscapeRoomTheme.imageURL}`;
+  const image_URL = getImageUrl(eachRoom.EscapeRoomTheme.imageURL);
 
   return (
     <CollectItem>

@@ -8,27 +8,34 @@ const Category = db.Category;
 const Member = db.Member;
 const escapeThemeValidation = require("../validation").escapeThemeValidation;
 
+// Cloudinary 配置
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
 // middleware
 router.use((req, res, next) => {
   console.log("正在接收一個有關密室主題的請求...");
   next();
 });
 
-// 設置 multer 來指定文件的存儲位置和文件名 (設置 multer 將上傳的文件存儲在伺服器的 uploadImages/ 目錄下)
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploadImages/"); // 圖片儲存路徑
-  },
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname) //圖片名稱
-    );
+// 設置 Cloudinary 存儲配置
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: "escape-room-themes", // Cloudinary 上的資料夾名稱
+    allowed_formats: ["jpg", "jpeg", "png", "webp"], // 允許的圖片格式
+    transformation: [{ quality: "auto" }], // 自動優化圖片品質
   },
 });
 
 const upload = multer({ storage: storage });
-// 由于 multer 默认只处理一个文件，您需要稍微调整它以处理多个文件(可以使用 upload.fields([{ name: 'image', maxCount: 1 }, { name: 'slideImages', maxCount: 3 }]))
+// 處理多個文件上傳
 const uploadMutiple = upload.fields([
   { name: "image", maxCount: 1 },
   { name: "slideImages", maxCount: 3 },
@@ -64,7 +71,7 @@ router.post("/escapetheme", uploadMutiple, async (req, res) => {
       return res
         .status(400)
         .send(
-          "只有創建者才能發佈新密室逃脫主題。若你是創建者，請透過創建者帳號登入。"
+          "只有創建者才能發佈新密室逃脫主題。若你是創建者，請透過創建者帳號登入。",
         );
     }
 
@@ -90,10 +97,10 @@ router.post("/escapetheme", uploadMutiple, async (req, res) => {
       catgoryFound = await Category.create({ name: categoryName });
     }
 
-    const uploadedImageURL =
-      req.files["image"][0].destination + req.files["image"][0].filename;
+    // 從 Cloudinary 取得上傳後的圖片 URL
+    const uploadedImageURL = req.files["image"][0].path; // Cloudinary 回傳的完整 URL
     const slideImages = req.files["slideImages"].map((file) => {
-      return file.destination + file.filename;
+      return file.path; // Cloudinary 回傳的完整 URL
     });
 
     // 為該類別新增密室主題

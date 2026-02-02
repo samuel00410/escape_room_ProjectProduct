@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
+import { getImageUrl } from "../../../utils/imageHelper";
 import moment from "moment";
 import img from "../../../images/157937008_3745310832213528_5425317224597840220_o.webp";
 
@@ -27,7 +28,7 @@ const ReserveRooms = ({ themeData }) => {
   // console.log(themeData);
   const serverURL =
     "https://escaperoomprojectproduct-production.up.railway.app";
-  const imageURL = `${serverURL}/${themeData.EscapeRoomTheme.imageURL}`;
+  const imageURL = getImageUrl(themeData.EscapeRoomTheme.imageURL);
   const formattedDate = moment(themeData.reservationDate).format(
     "YYYY-MM-DD HH:mm",
   );
